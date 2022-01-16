@@ -1,0 +1,8 @@
+{% raw %}
+# You can create any templates that contain jinja2, e.g. to copy them in a play on a/the host(s). 
+#
+# e.g. jinja2:
+# 
+# Unattended-Upgrade::Mail "{{postfix.EMAIL_ADMIN}}";
+# Unattended-Upgrade::Automatic-Reboot-Time "{{ '%02d' | format(range(3,4) | random)  }}:{{ '%02d' | format(range(0,59) | random) }}"; 
+{% endraw %}

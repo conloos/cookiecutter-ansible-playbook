@@ -1,0 +1,32 @@
+{%- if cookiecutter.scope == "personally" -%}
+
+Copyright (c) {{cookiecutter.year}}, {{cookiecutter.author}} {{cookiecutter.company}}
+All rights reserved.
+
+This Ansible project is aimed at personal use only and may therefore contain various bugs and workarounds.
+Support only in exceptional cases, patches are welcome. 
+
+{%- elif cookiecutter.scope == "internal" -%}
+
+This Ansible project is only used by a limited group of people and can therefore contain various errors and workarounds. 
+The coding guidelines are observed.
+The currently working version is located in the "main" branch.
+Extensions are located in the "Feature" branch(es).
+If necessary, please read th comment on the wiki pages.
+Please report errors via the issue tracker.
+
+{%- elif cookiecutter.scope == "company" -%}
+
+This Ansible project is focused to be usable in the whole company, but can therefore contain errors. 
+The coding guidelines are observed.
+The currently working version is located in the "main" branch.
+Extensions are located in the "Feature" branch(es).
+If necessary, please read th comment on the wiki pages.
+Please report errors via the issue tracker.
+
+{%- elif cookiecutter.scope == "other" -%}
+
+This Ansible project have a special scope.
+If no other imformation provided in this file please contact {{cookiecutter.author}} by {{cookiecutter.email}}.
+
+{%- endif -%}

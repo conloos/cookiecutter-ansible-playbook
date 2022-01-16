@@ -1,0 +1,15 @@
+---
+# ansible_host: ip|dns
+# ansible_user: root
+# ansible_become: true
+# ansible_become_pass: {% raw %} "{{ ios.srv_iosadmin }}" {% endraw %}
+
+# for configurations that deviate from the default 
+#
+# ansible_connection: ssh|local
+# ansible_port: 22
+# ansible_python_interpreter: /usr/bin/python3
+# ansible_netmask: mask
+# ansible_gateway: ip
+# ansible_nameserver: ip
+...

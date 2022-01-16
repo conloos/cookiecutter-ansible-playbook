@@ -1,0 +1,35 @@
+#!/bin/bash
+# Fact: Checks whether a login on the remote system is possible.
+#
+# This is an example of a File Header comments in Bash
+#
+# Copyright 2020 Frank Dornheim
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+# ---
+
+{% raw %}
+# Try to connect to remote system
+state=$(ssh -o BatchMode=yes -o ConnectTimeout={{WAITTIME}} {{USER}}@{{REMOTE}} echo ok 2>&1)
+
+# Evaluate the result and create the JSON output
+if [[ $state == ok ]] ; then
+  echo {\""ssh_remote\"" : \""ok\""}
+elif [[ $state == *"Permission denied"* ]] ; then
+  echo {\""ssh_remote\"" : \""denied\""}
+else
+  echo {\""ssh_remote\"" : \""error\""}
+fi
+{% endraw %}

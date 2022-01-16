@@ -1,0 +1,8 @@
+---
+# default vars to apply to all hosts
+
+# ansible_user: john
+# ansible_become: true
+# ansible_become_pass: {% raw %} "{{ ios.srv_iosadmin }}" {% endraw %}
+
+...

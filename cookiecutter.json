@@ -1,0 +1,12 @@
+{
+  "year": 2022,
+  "playbook_name": "Do_magic_by_ansible",
+  "author": "J. Doe",
+  "email": "john@doe.com",
+  "author_at_repo_server": "jdoe",
+  "repo_server": "https://gitlab.com",
+  "company": "My IT company",
+  "description": "This playbook does magic on the network.",
+  "vault_pass": "Password for the Ansible vault",
+  "scope": ["personally", "internal", "company", "other"]
+}

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+temp_git_username="{{cookiecutter.author}}"
+temp_git_user_email="{{cookiecutter.email}}"
