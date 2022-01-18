@@ -19,7 +19,7 @@ Without them the using of that cookiecutter will fail.
     $ cookiecutter https://gitlab.com/b3533/cookiecutter.git or 
     $ cookiecutter ~/path/to/template
 
-and anwer the questions
+and answer the questions
 
     year [2022]:
     playbook_name [Do_magic_by_ansible]:
