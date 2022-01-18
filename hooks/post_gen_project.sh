@@ -4,6 +4,7 @@
 /usr/bin/env python -m venv .venv
 if [ $? -ne 0 ]; then
   echo 'Error: The venv could not be created .' >&2
+  echo 'Configuration is rolled back.' >&2
   exit 1
 fi
 
@@ -18,6 +19,7 @@ source .venv/bin/activate
 pip install wheel ansible ansible-lint bumpversion pre-commit
 if [ $? -ne 0 ]; then
   echo 'Error: The activation of the venv or dependency installation failed  .' >&2
+  echo 'Configuration is rolled back.' >&2
   exit 1
 fi
 
@@ -26,13 +28,15 @@ fi
 ansible-vault encrypt --vault-password-file .ansible_vault_pass group_vars/default.vault && rm .ansible_vault_pass
 if [ $? -ne 0 ]; then
   echo 'Error: The default.vault could not be encrypted WHATCH OUT YOUR PW IS VISIBLE AT .ansible_vault_pass' >&2
+  echo 'Configuration is rolled back.' >&2
   exit 1
 fi
 
 # init git
-git init && git branch -m main
+git config --global init.defaultBranch main && git init
 if [ $? -ne 0 ]; then
   echo 'Error: init git' >&2
+  echo 'Configuration is rolled back.' >&2
   exit 1
 fi
 
@@ -45,6 +49,7 @@ git config user.email $temp_git_user_email
 rm .git_config.temp
 if [ $? -ne 0 ]; then
   echo 'Error: Deleting Temp Files' >&2
+  echo 'Configuration is rolled back.' >&2
   exit 1
 fi
 
@@ -52,6 +57,7 @@ fi
 git add * && git commit -m "init"
 if [ $? -ne 0 ]; then
   echo 'Error: Git creating first commit.' >&2
+  echo 'Configuration is rolled back.' >&2
   exit 1
 fi
 
@@ -59,5 +65,6 @@ fi
 pre-commit install
 if [ $? -ne 0 ]; then
   echo 'Error: install pre-commit' >&2
+  echo 'Configuration is rolled back.' >&2
   exit 1
 fi
