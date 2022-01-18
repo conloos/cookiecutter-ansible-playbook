@@ -4,9 +4,23 @@ A [cookiecutter](https://cookiecutter.readthedocs.io/en/latest/) template for:
 - create Ansible playbook repos and
 - optionaly install environment.
 
+# Dependencies
+
+You have to install a lot of packages first:
+  * python
+  * python venv module
+  * pip
+  * git
+Without them the using of that cookiecutter will fail.
+
 ## Usage
 
-    $ cookiecutter gh:conloos/cookiecutter-ansible-playbook
+    $ cookiecutter gh:conloos/cookiecutter-ansible-playbook or
+    $ cookiecutter https://gitlab.com/b3533/cookiecutter.git or 
+    $ cookiecutter ~/path/to/template
+
+and anwer the questions
+
     year [2022]:
     playbook_name [Do_magic_by_ansible]:
     author [J. Doe]:
